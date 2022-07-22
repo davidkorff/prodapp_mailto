@@ -1,3 +1,6 @@
+ // https://cdn.jsdelivr.net/gh/davidkorff/prodapp_mailto/contactMerchant.js
+// document.head.innerHTML += '<script src="https://cdn.jsdelivr.net/gh/davidkorff/prodapp_mailto/contactMerchant.js"></script>';
+
 div = document.getElementById("btnIntervene").parentNode
 button = createPageElement("button", "contact_button", ["btn", "btn-warning", "btn-danger"], [], div)
 
@@ -29,7 +32,7 @@ button.onclick = function(){
   shippingErrorButton.onclick = function(){
       toEmailArray =[]
       toEmailArray.push(assignMerchantemail())
-      subject = "shipping error"
+      subject = "Shipping Error"
       createEmail(subject, toEmailArray, body)
     }
 
@@ -38,40 +41,59 @@ button.onclick = function(){
   artWorkPoorQuality.onclick = function(){
     toEmailArray =[]
     toEmailArray.push("ahellein@pcna.com")
+    toEmailArray.push("jacquelin.reyes@spokecustom.com")
     subject = "Poor Quality artwork"
     createEmail(subject, toEmailArray, body)
   }
 
   var artWorkIncorrect = createPageElement("button", "artWorkIncorrect", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
-  artWorkIncorrect.innerHTML = "Artwork Incorrect"
+  artWorkIncorrect.innerHTML = "Mismatch artwork"
   artWorkIncorrect.onclick = function(){
     toEmailArray =[]
-    toEmailArray.push("dkorff@pcna.com")
-    toEmailArray.push("ahellein@pcna.com")
+    toEmailArray.push("jacquelin.reyes@spokecustom.com")
     subject = "Incorrect Artwork"
     createEmail(subject, toEmailArray, body)
   }
 
 
-  var needDev = createPageElement("button", "needDev", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
-  needDev.innerHTML = "Need Dev"
-  needDev.onclick = function(){
+  var systemError = createPageElement("button", "systemError", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
+  systemError.innerHTML = "System Error"
+  systemError.onclick = function(){
     toEmailArray =[]
     toEmailArray.push("ahellein@pcna.com")
-    subject = "Need Dev"
+    toEmailArray.push("jacquelin.reyes@spokecustom.com")
+    subject = "System Error"
     createEmail(subject, toEmailArray, body)
   }
 
 
-  var needBusiness = createPageElement("button", "needBusiness", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
-  needBusiness.innerHTML = "Busines Question"
-  needBusiness.onclick = function(){
+  var shippingAddress = createPageElement("button", "shippingAddress", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
+  shippingAddress.innerHTML = "Shipping Address"
+  shippingAddress.onclick = function(){
     toEmailArray =[]
-    toEmailArray.push("dkorff@pcna.com")
-    subject = "Need Business"
+    toEmailArray.push("jacquelin.reyes@spokecustom.com")
+    subject = "Shipping Address Issue"
     createEmail(subject, toEmailArray, body)
   }
 
+  var artworkNotSent = createPageElement("button", "artworkNotSent", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
+  artworkNotSent.innerHTML = "Shipping Address"
+  artworkNotSent.onclick = function(){
+    toEmailArray =[]
+    toEmailArray.push("jacquelin.reyes@spokecustom.com")
+    subject = "Artwork Not Sent"
+    createEmail(subject, toEmailArray, body)
+  }
+
+  var kittingIssue = createPageElement("button", "kittingIssue", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
+  kittingIssue.innerHTML = "Shipping Address"
+  kittingIssue.onclick = function(){
+    toEmailArray =[]
+    toEmailArray.push("jacquelin.reyes@spokecustom.com")
+    toEmailArray.push("dirwin@pcna.com")
+    subject = "Kitting Issue"
+    createEmail(subject, toEmailArray, body)
+  }
 
 
 
