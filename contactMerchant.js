@@ -1,5 +1,4 @@
  // https://cdn.jsdelivr.net/gh/davidkorff/prodapp_mailto/contactMerchant.js
-// document.head.innerHTML += '<script src="https://cdn.jsdelivr.net/gh/davidkorff/prodapp_mailto/contactMerchant.js"></script>';
 //v3
 div = document.getElementById("btnIntervene").parentNode
 button = createPageElement("button", "contact_button", ["btn", "btn-warning", "btn-danger"], [], div)
@@ -77,7 +76,7 @@ button.onclick = function(){
   }
 
   var artworkNotSent = createPageElement("button", "artworkNotSent", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
-  artworkNotSent.innerHTML = "Shipping Address"
+  artworkNotSent.innerHTML = "Artwork Not Sent"
   artworkNotSent.onclick = function(){
     toEmailArray =[]
     toEmailArray.push("jacquelin.reyes@spokecustom.com")
@@ -86,7 +85,7 @@ button.onclick = function(){
   }
 
   var kittingIssue = createPageElement("button", "kittingIssue", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
-  kittingIssue.innerHTML = "Shipping Address"
+  kittingIssue.innerHTML = "Kitting Issue"
   kittingIssue.onclick = function(){
     toEmailArray =[]
     toEmailArray.push("jacquelin.reyes@spokecustom.com")
