@@ -1,6 +1,6 @@
  // https://cdn.jsdelivr.net/gh/davidkorff/prodapp_mailto/contactMerchant.js
 // document.head.innerHTML += '<script src="https://cdn.jsdelivr.net/gh/davidkorff/prodapp_mailto/contactMerchant.js"></script>';
-
+//v3
 div = document.getElementById("btnIntervene").parentNode
 button = createPageElement("button", "contact_button", ["btn", "btn-warning", "btn-danger"], [], div)
 
@@ -103,28 +103,28 @@ button.onclick = function(){
   function assignMerchantemail(){
     var prefix = $(":contains('Order Number:')").last()[0].parentNode.childNodes[3].innerHTML.substring(0, 3)
     if(prefix === 'PR-'){
-      return toEmail = 'dkorff@pcna.com'
+      return toEmail = 'jacquelin.reyes@spokecustom.com'
     }
     else if(prefix == 'RO-'){
-      return toEmail = 'dkorff@pcna.com'
+      return toEmail = 'jacquelin.reyes@spokecustom.com'
     }
     else if(prefix == 'ZA-'){
-      return toEmail = 'dkorff@pcna.com'
+      return toEmail = 'jacquelin.reyes@spokecustom.com'
     }
     else if(prefix == 'KX-'){
-      return toEmail = 'dkorff@pcna.com'
+      return toEmail = 'jacquelin.reyes@spokecustom.com'
     }
     else if(prefix == 'MO-'){
-      return toEmail = 'dkorff@pcna.com'
+      return toEmail = 'jacquelin.reyes@spokecustom.com'
     }
     else if(prefix == 'CG-'){
-      return toEmail = 'dkorff@pcna.com'
+      return toEmail = 'jacquelin.reyes@spokecustom.com'
     }
     else if(prefix == 'BSN'){
-      return toEmail = 'dkorff@pcna.com'
+      return toEmail = 'jacquelin.reyes@spokecustom.com'
     }
     else{
-      return toEmail = 'dkorff@pcna.com'
+      return toEmail = 'jacquelin.reyes@spokecustom.com'
     }
   }
 
