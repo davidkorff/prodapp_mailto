@@ -170,12 +170,13 @@ function createEmail(subject, toEmailArray, body){
 
   body = "License Plate: "+licensePlates+"%0D%0A%0D%0A"+
     "Status: "+orderStatus+"%0D%0A%0D%0A"+
-    "Art Images:"+"%0D%0A"+artImages+"%0D%0A%0D%0A"+
-    "Preview Images: "+"%0D%0A"+previewImages+"%0D%0A%0D%0A"+
+    "Art Images: "+"%0D%0A"+encodeURIComponent(artImages)+"%0D%0A%0D%0A"+
+    "Preview Images: "+"%0D%0A"+encodeURIComponent(previewImages)+"%0D%0A%0D%0A"+
     "SKU: "+sku+"%0D%0A%0D%0A"+
     "Tracking: "+tracking+"%0D%0A%0D%0A"+
     "Tracking URL: "+trackingURL+"%0D%0A%0D%0A"+
     "Error Message: " +"a biggy "+"%0D%0A%0D%0A"
+
 
 
   location.href = "mailto:"+emailString+'?cc='+'dkorff@pcna.com'+'&subject='+subject+'&body='+body ;
