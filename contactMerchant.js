@@ -93,6 +93,19 @@ button.onclick = function(){
     subject = "Kitting Issue"
     createEmail(subject, toEmailArray, body)
   }
+var prefix = $(":contains('Order Number:')").last()[0].parentNode.childNodes[3].innerHTML.substring(0, 3)
+  if(prefix == 'BSN'){
+    var cancelBSN = createPageElement("button", "cancelBSN", ["btn", "btn-warning", "btn-danger", "m-1"], [], contactBody)
+    cancelBSN.innerHTML = "BSN Cancel Order"
+    cancelBSN.onclick = function(){
+      toEmailArray =[]
+      toEmailArray.push("gwoods@bsnsports.com")
+      toEmailArray.push("jacquelin.reyes@spokecustom.com")
+      subject = "BSN / Spoke Custom Cancel Order"
+      createBSNCancelEmail(subject, toEmailArray, body)
+    }
+  }
+
 
 
 
@@ -133,6 +146,52 @@ button.onclick = function(){
 // button.onclick = merchantEmail;
 
 div.appendChild(button)
+
+function createBSNCancelEmail(subject, toEmailArray, body){
+  var emailString = ""
+  var spokeOrderNum = document.querySelector(".content-area").children[2].children[1].innerHTML
+  var licensePlates = ""
+  var orderStatus = orderObject.lineStatus
+  var artImages = ""
+  var previewImages = ""
+  var sku = orderObject.sku
+  var tracking = orderObject.trackingNumber
+  var trackingURL = orderObject.trackingURL
+  var orderID = ""
+  var orderLineID = ""
+  var error = String(document.querySelector("#mdlErrorMessage").innerHTML.replaceAll(/<[^>]*>/g, '').replaceAll("\r", '').replaceAll("\n", '').replaceAll("     ", ''))
+
+
+  for (var i = 0; i < toEmailArray.length; i++) {
+    emailString = emailString+toEmailArray[i]+";"
+  }
+  console.log(emailString)
+  console.log(body)
+
+
+  licensePlateArray = orderObject.licensePlates
+  for (var i = 0; i < licensePlateArray.length; i++) {
+    licensePlates = licensePlates+licensePlateArray[i].id+", "
+    orderID = licensePlateArray[i].orderID
+    orderLineID = licensePlateArray[i].orderLineID
+  }
+
+  subject = subject + ": " + spokeOrderNum+" / "+orderID+" / "+orderLineID+" / "+licensePlates
+
+  artImages = JSON.stringify(orderObject.artImages)
+  previewImages = JSON.stringify(orderObject.previewImages)
+
+  body = "Hi Glennis,"+"%0D%0A%0D%0A"+ "Order "+orderID+ " has been cancelled due to an invalid address."+"%0D%0A%0D%0A"+"Please confirm Address is a valid USPS ship to address. "+"%0D%0A%0D%0A"+
+  "License Plate: "+licensePlates+"%0D%0A%0D%0A"+
+    "Status: "+orderStatus+"%0D%0A%0D%0A"+
+    "Art Images: "+"%0D%0A"+encodeURIComponent(artImages)+"%0D%0A%0D%0A"+
+    "Preview Images: "+"%0D%0A"+encodeURIComponent(previewImages)+"%0D%0A%0D%0A"+
+    "SKU: "+sku+"%0D%0A%0D%0A"
+
+
+
+  location.href = "mailto:"+emailString+'?cc='+'dkorff@pcna.com'+'&subject='+subject+'&body='+body ;
+}
 
 function createEmail(subject, toEmailArray, body){
   var emailString = ""
